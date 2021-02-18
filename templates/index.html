@@ -1,0 +1,154 @@
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Sticky Footer Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <style>
+        * {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+        .container {
+  width: auto;
+  max-width: 880px;
+  padding: 0 15px;
+}
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100" style="background-image: url(https://i.pinimg.com/originals/e0/d6/1f/e0d61f5c361eb8f0a14025d349b1be64.jpg)">
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+  <div class="container">
+      <div style="background-color: aliceblue; padding: 10px">
+    <h1 class="mt-5" style="color: black">ML WebApp </h1>
+    <p class="lead"style="color: black">IRIS FLOWER PREDICTION </p>
+      <a href="/" class="btn btn-primary p-3">Reset</a>
+       </div>
+      <div class="row">
+  <div class="column">
+
+      <div>
+          <div style="background-color: aqua;padding: 30px">
+               <h4>Model Prediction</h4>
+            <form method="POST" action="/" >
+
+               <label>Sepal Length</label>
+             <input type="range" name="sepal_length" id="sepal_length_id" value="4" min="4" step="0.1" max="8"
+                 oninput="sepal_output_length.value = sepal_length_id.value">
+             <output name="sepal_output_length" id="sepal_output_length">4</output>
+
+                 <label>Sepal_width</label><br>
+               <input type="range" name="sepal_width" id="sepal_width_id" value="4" min="4" step="0.1" max="8"
+                 oninput="sepal_output_width.value = sepal_width_id.value">
+             <output name="sepal_output_width" id="sepal_output_width">4</output>
+
+                 <label>Petal Length</label><br>
+             <input type="range" name="petal_length" id="petal_length_id" value="4" min="4" step="0.1" max="8"
+                 oninput="petal_output_length.value = petal_length_id.value">
+             <output name="petal_output_length" id="petal_output_length">4</output>
+
+                <label>Petal width</label><br>
+               <input type="range" name="petal_width" id="petal_width_id" value="4" min="4" step="0.1" max="8"
+                 oninput="petal_output_width.value = petal_width_id.value">
+             <output name="petal_output_width" id="petal_output_width">4</output>
+
+                   <div class="form-group">
+    <label for="exampleFormControlSelect1">Which Type Of Algo  </label>
+    <select class="form-control" name="typeml" id="exampleFormControlSelect2">
+      <option>KNN</option>
+      <option>LOGISTIC</option>
+         <option>SVM</option>
+    </select>
+  </div>
+
+              <input type="submit" value="submit" class="btn btn-success" />
+        </form>
+              </div>
+      </div>
+  </div>
+  <div class="column">
+      <div style="background-color: #06C650 ; padding: 20px">
+          <h4>Data Fetch</h4>
+          <h5>Sepal length: {{ sepal_length }} </h5>
+          <h5>Sepal width: {{ sepal_width }} </h5>
+          <h5>Petal length: {{ petal_length }} </h5>
+          <h5>Petal width: {{ petal_width }}</h5>
+          <h5>Using Model: {{typeml}} </h5>
+      </div>
+  </div>
+  <div class="column">
+
+      <div style="background-color: #06C650;padding:10px;">
+          <h4>Prediction</h4>
+          {% if result== 0  %}
+          <h4>Result: Setosa</h4>
+           <img src="static/img/iris_setosa.jpg" width="200px" height="200px">
+          {% elif result== 1  %}
+           <h4>Result: Verginica</h4>
+           <img src="static/img/iris_virginica.jpg" width="200px" height="200px">
+           {% elif result== 2  %}
+           <h4>Result: Versicolor </h4>
+           <img src="static/img/iris_versicolor.jpg" width="200px" height="200px">
+
+          {% endif %}
+      </div>
+  </div>
+</div>
+
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">CopyRight By Trapti Gupta & Pratusa Dwibedy   2021 </span>
+  </div>
+</footer>
+
+
+
+  </body>
+</html>
